@@ -14,15 +14,22 @@ class ML505Platform(XilinxVirtex5Platform):
     package     = "ffg1136"
     speed       = "1"
     default_clk = "clk100"
+    default_rst = "cpu_rst"
     resources   = [
         Resource("clk100", 0, Pins("AH15", dir="i"),
             Clock(100e6), Attrs(IOSTANDARD="LVCMOS33")
         ),
+        Resource("cpu_rst", 0, PinsN("E9", dir="i"), Attrs(IOSTANDARD="LVCMOS33")),
 
         *LEDResources(
-            pins="H18 L18 G15 AD26 G16 AD25 AD24 AE24",
-            attrs=Attrs(IOSTANDARD="LVCMOS33")
-        )
+            pins="H18 L18 G15",
+            attrs=Attrs(IOSTANDARD="LVCMOS25")
+        ),
+
+        *SwitchResources(
+            pins = "U25  AG27 AF25 AF26 AE27 AE26 AC25 AC24",
+            attrs=Attrs(IOSTANDARD="LVCMOS18"),
+        ),
     ]
     connectors  = [
        
