@@ -3,7 +3,7 @@ import subprocess
 
 from nmigen.build import *
 from nmigen.vendor.xilinx_spartan_3_6 import *
-from nmigen_boards.resources import *
+from .resources import *
 
 
 __all__ = ["ML505Platform"]
@@ -35,8 +35,8 @@ class ML505Platform(XilinxVirtex5Platform):
        
     ]
 
-    # This board doesn't have an integrated programmer.
+    # This board doesn't have an integrated programmer, just a JTAG header
 
 if __name__ == "__main__":
-    from nmigen_boards.test.blinky import *
+    from .test.blinky import *
     ML505Platform().build(Blinky(), do_build=False, do_program=False).execute_local(run_script=False)
