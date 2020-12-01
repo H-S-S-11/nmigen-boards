@@ -33,12 +33,12 @@ class ML505Platform(XilinxVirtex5Platform):
             attrs=Attrs(IOSTANDARD="LVCMOS18"),
         ),
 
-        Resource("audio_codec", 0,  #AD1981 chip using AC97 codec
-            Subsignal("bit_clk", Pins("AF18", dir="")),
-            Subsignal("sdata_in", Pins("AE18", dir="")),
-            Subsignal("sdata_out", Pins("AG16", dir="")),
-            Subsignal("audio_sync", Pins("AF19", dir ="")),
-            Subsignal("flash_audio_reset_b", Pins("AG17", dir="")), #this reset pin is shared with the config flash chips, beware if those are added as resources
+        Resource("audio_codec", 0,  #AD1981 chip using AC97 codec, primary mode with 24.576MHz crystal
+            Subsignal("bit_clk", Pins("AF18", dir="i")), #12.288MHz input since codec in primary mode
+            Subsignal("sdata_in", Pins("AE18", dir="i")),
+            Subsignal("sdata_out", Pins("AG16", dir="o")),
+            Subsignal("audio_sync", Pins("AF19", dir ="o")),
+            Subsignal("flash_audio_reset_b", PinsN("AG17", dir="o")), #this reset pin is shared with the config flash chips, beware if those are added as resources
             Attrs(IOSTANDARD="LVCMOS33")
         ),
         
