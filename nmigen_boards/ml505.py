@@ -19,6 +19,8 @@ class ML505Platform(XilinxVirtex5Platform):
         Resource("clk100", 0, Pins("AH15", dir="i"),
             Clock(100e6), Attrs(IOSTANDARD="LVCMOS33")
         ),
+        Resource("audio_bit_clk", 0, Pins("AF18", dir="i"),
+            Clock(12288e3), Attrs(IOSTANDARD="LVCMOS33")),
         Resource("cpu_rst", 0, PinsN("E9", dir="i"), Attrs(IOSTANDARD="LVCMOS33")),
 
         *LEDResources(
@@ -34,7 +36,6 @@ class ML505Platform(XilinxVirtex5Platform):
         ),
 
         Resource("audio_codec", 0,  #AD1981 chip using AC97 codec, primary mode with 24.576MHz crystal
-            Subsignal("bit_clk", Pins("AF18", dir="i")), #12.288MHz input since codec in primary mode
             Subsignal("sdata_in", Pins("AE18", dir="i")),
             Subsignal("sdata_out", Pins("AG16", dir="o")),
             Subsignal("audio_sync", Pins("AF19", dir ="o")),
