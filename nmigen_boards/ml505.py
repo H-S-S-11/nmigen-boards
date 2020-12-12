@@ -35,6 +35,9 @@ class ML505Platform(XilinxVirtex5Platform):
             attrs=Attrs(IOSTANDARD="LVCMOS18"),
         ),
 
+        Resource("piezo", 0,
+            Pins("G30", dir="o"), Attrs(IOSTANDARD="LVCMOS18")),
+
         Resource("audio_codec", 0,  #AD1981 chip using AC97 codec, primary mode with 24.576MHz crystal
             Subsignal("sdata_in", Pins("AE18", dir="i")),
             Subsignal("sdata_out", Pins("AG16", dir="o")),
