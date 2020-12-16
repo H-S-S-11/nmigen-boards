@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from nmigen.build import *
-from nmigen.vendor.xilinx_spartan_3_6 import *
+from nmigen.vendor.xilinx import *
 from .resources import *
 
 
