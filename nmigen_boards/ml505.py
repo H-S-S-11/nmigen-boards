@@ -2,7 +2,7 @@ import os
 import subprocess
 
 from nmigen.build import *
-from nmigen.vendor.xilinx import *
+from nmigen.vendor.xilinx import XilinxPlatform
 from .resources import *
 
 
