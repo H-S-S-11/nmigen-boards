@@ -9,7 +9,7 @@ from .resources import *
 __all__ = ["ML505Platform"]
 
 
-class ML505Platform(XilinxVirtex5Platform):
+class ML505Platform(XilinxPlatform):
     device      = "xc5vlx50T"
     package     = "ffg1136"
     speed       = "1"
