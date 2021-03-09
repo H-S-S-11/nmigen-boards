@@ -62,4 +62,4 @@ class ML505Platform(XilinxPlatform):
 
 if __name__ == "__main__":
     from .test.blinky import *
-    ML505Platform().build(Blinky(), do_build=False, do_program=False).execute_local(run_script=False)
+    ML505Platform().build(Blinky(), do_program=False)
