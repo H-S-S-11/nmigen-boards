@@ -11,7 +11,7 @@ __all__ = ["ML505Platform"]
 
 class ML505Platform(XilinxPlatform):
     device      = "xc5vlx50T"
-    package     = "ffg1136"
+    package     = "ff1136"
     speed       = "1"
     default_clk = "clk100"
     default_rst = "cpu_rst"
